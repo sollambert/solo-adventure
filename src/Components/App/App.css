@@ -10,6 +10,8 @@ html, body {
   line-height: 2vh;
   background-color: #030e00;
   text-shadow: 0 0 5px rgba(0, 255, 47, 0.471);
+  margin-left: .5em;
+  margin-right: .5em;
 }
 
 .chat {
