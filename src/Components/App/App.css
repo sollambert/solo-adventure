@@ -9,21 +9,31 @@ html, body {
   font-family: 'Apple II';
   line-height: 2vh;
   background-color: #030e00;
-  /* background-image: repeating-linear-gradient(black 200% 1vh, #030e00 10vh); */
-  /* background: repeating-linear-gradient(rgba(4, 60, 0, 0.03) 0.5vh, rgba(0, 0, 0, 0.05) 0.8vh); */
   text-shadow: 0 0 5px rgba(0, 255, 47, 0.471);
 }
-/* 
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: repeating-linear-gradient(rgba(4, 60, 0, 0.03) 0.5vh, rgba(0, 0, 0, 0.05) 0.8vh);
-    z-index: -1;
-} */
+
+.chat {
+  margin-top:  .5em;
+  margin-bottom: .5em;
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+}
+
+.images {
+  display: flex;
+  flex-direction: row;
+}
+
+.chat-container {
+  justify-content: flex-end;
+}
+
+.nav {
+  justify-items: flex-end;
+}
 
 @keyframes blink {
   0% {
