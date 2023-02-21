@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-// GET students
+// GET history
 router.get('/', (req, res) => {
     // Get all of the treats from the database
+    // console.log('test')
     const sqlText = `SELECT * FROM history`;
     pool.query(sqlText)
         .then((result) => {
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
         });
 });
 
-// POST students
+// POST history
 router.post('/', (req, res) => {
     console.log(req.body);
     const message = req.body.message;

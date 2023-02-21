@@ -5,4 +5,8 @@ input {
     background-color: #030e00;
     font-size: 1em;
     font-family: 'Apple II';
+    width: stretch;
+    padding: .5em;
+    margin-left: .5em;
+    margin-right: .5em;
 }

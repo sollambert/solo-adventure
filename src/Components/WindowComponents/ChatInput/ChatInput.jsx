@@ -1,14 +1,25 @@
 import './ChatInput.css'
 
-function ChatInput( {value, setValue }) {
+function ChatInput( {value, setValue, send }) {
 
     const handleInputBuffer = (event) =>{
         setValue(event.target.value);
     }
 
+    const handleKeyDown = (event) => {
+        // console.log(event.key);
+        if (event.key == "Enter") {
+            send(value, clearInput);
+        }
+    }
+
+    const clearInput = () => {
+      setValue('');
+    }
+
     return (<>
         <label htmlFor="input"></label>
-        <input onChange={handleInputBuffer}name="input" type="text" value={value}/>
+        <input onKeyDown={handleKeyDown} onChange={handleInputBuffer}name="input" type="text" value={value}/>
     </>)
 }
 
