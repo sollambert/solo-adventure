@@ -38,6 +38,10 @@ function parseCommand(message, playerInfo) {
     switch (split[0]) {
         case 'go':
             response.type = "GO";
+            if (split[2]) {
+                split[1] = `${split[1]} ${split[2]}`;
+                console.log(split[1]);
+            }
             if (!split[1]) {
                 response.result = `Go where?`
                 return response;
@@ -75,6 +79,10 @@ function parseCommand(message, playerInfo) {
                 response.result = `Use the ${split[1]} on what?`
                 return response;
             }
+            case 'exits':
+                response.type="EXITS";
+                response.result = playerInfo.room.exits.join(', ')
+                return response;
         case 'take':
             response.type="TAKE";
             if (!split[1]) {
@@ -85,9 +93,17 @@ function parseCommand(message, playerInfo) {
             return response;
         case 'look':
             response.type="LOOK";
+            //console.log(playerInfo.room.interactables)
             if (!split[1]) {
-                response.result = `Look at what?`
+                response.result = playerInfo.room.description;
                 return response;
+            }
+            for (let object of playerInfo.room.interactables) {
+                console.log(object)
+                if (object[(split[1])]) {
+                     response.result = object[(split[1])].description;
+                    return response;
+                }
             }
             response.result = `You look at the ${split[1]}.`
             return response;
