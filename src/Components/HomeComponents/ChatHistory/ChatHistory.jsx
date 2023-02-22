@@ -1,6 +1,9 @@
 import './ChatHistory.css'
+import {useSelector} from 'react-redux';
 
-function ChatHistory({ messages, historyEndRef }) {
+function ChatHistory({ historyEndRef }) {
+
+    let messages = useSelector(store => store.history);
 
     return (
         <div className="history">

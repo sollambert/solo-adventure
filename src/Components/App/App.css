@@ -5,7 +5,7 @@
 
 html, body {
   color: #12ff1e;
-  font-size: 1em;
+  font-size: 16pt;
   font-family: 'Apple II';
   line-height: 2vh;
   background-color: #030e00;
@@ -27,6 +27,7 @@ html, body {
 .images {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .chat-container {
@@ -34,7 +35,6 @@ html, body {
 }
 
 .nav {
-  justify-items: flex-end;
 }
 
 @keyframes blink {

@@ -1,20 +1,22 @@
 import './ChatInput.css'
+import {useState} from 'react';
 
-function ChatInput({ value, setValue, send }) {
+function ChatInput({ send }) {
+
+    const [chatBuffer, setChatBuffer] = useState('');
 
     const handleInputBuffer = (event) => {
-        setValue(event.target.value);
+        setChatBuffer(event.target.value);
     }
 
     const handleKeyDown = (event) => {
-        // console.log(event.key);
         if (event.key == "Enter") {
-            send(value, clearInput);
+            send(chatBuffer, clearInput);
         }
     }
 
     const clearInput = () => {
-        setValue('');
+        setChatBuffer('');
     }
 
     return (<>
@@ -24,7 +26,7 @@ function ChatInput({ value, setValue, send }) {
             onChange={handleInputBuffer}
             name="input"
             type="text"
-            value={value}
+            value={chatBuffer}
             placeholder="Enter commands here..."
         />
     </>)

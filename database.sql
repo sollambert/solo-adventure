@@ -1,6 +1,9 @@
 create table history (
     id SERIAL PRIMARY KEY,
-    message varchar(255)
+    username varchar(255),
+    pass varchar(255),
+    room varchar(255),
+    inventory varchar(255)[]
 );
 
 insert into history (message)
