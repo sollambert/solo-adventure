@@ -59,7 +59,7 @@ function parseCommand(message, playerInfo) {
                 return response;
             }
         case 'open':
-            response.type="OPEN";
+            response.type = "OPEN";
             if (!split[1]) {
                 response.result = `Open what?`
                 return response;
@@ -67,7 +67,7 @@ function parseCommand(message, playerInfo) {
             response.result = `You open the ${split[1]}`
             return response;
         case 'use':
-            response.type="USE";
+            response.type = "USE";
             if (!split[1]) {
                 response.result = `Use what?`
                 return response;
@@ -79,33 +79,49 @@ function parseCommand(message, playerInfo) {
                 response.result = `Use the ${split[1]} on what?`
                 return response;
             }
-            case 'exits':
-                response.type="EXITS";
-                response.result = playerInfo.room.exits.join(', ')
-                return response;
+        case 'exits':
+            response.type = "EXITS";
+            response.result = playerInfo.room.exits.join(', ')
+            return response;
         case 'take':
-            response.type="TAKE";
+            response.type = "TAKE";
             if (!split[1]) {
                 response.result = `Take what?`
                 return response;
             }
-            response.result = `You take the ${split[1]}.`
+            for (let item of playerInfo.room.items) {
+                //console.log(item)
+                if (item == (split[1])) {
+                    response.result = `You take the ${split[1]}`;
+                    response.item = item;
+                    return response;
+                }
+            }
+            response.result = `There's no ${split[1]} for you to take.`
             return response;
         case 'look':
-            response.type="LOOK";
+            response.type = "LOOK";
             //console.log(playerInfo.room.interactables)
             if (!split[1]) {
                 response.result = playerInfo.room.description;
                 return response;
             }
+            if (split[1] == 'items') {
+                if (playerInfo.room.items[0] == undefined) {
+                    response.result = "You don't see anything particularly interesting to pick up."
+                    return response;
+                }
+                response.result = playerInfo.room.items.join(', ');
+                return response;
+            }
             for (let object of playerInfo.room.interactables) {
                 console.log(object)
                 if (object[(split[1])]) {
-                     response.result = object[(split[1])].description;
+                    response.result = object[(split[1])].description;
                     return response;
                 }
             }
-            response.result = `You look at the ${split[1]}.`
+            response.result = `You don't see a ${split[1]} here.`
             return response;
         default:
             response.result = 'Sorry, I don\'t understand what you\'re trying to do.'

@@ -18,9 +18,15 @@ const rooms = [
                     "name": "photo",
                     "description": "You see a bald man sitting on a throne made out of money. The image is unsettling and you can't help but feel like his company controls most of the internet."
                 }
+            },
+            {
+                photograph: {
+                    "name": "photo",
+                    "description": "You see a bald man sitting on a throne made out of money. The image is unsettling and you can't help but feel like his company controls most of the internet."
+                }
             }
         ],
-        items: []
+        items: ["item","item2"]
     },
     {
         name: "road",

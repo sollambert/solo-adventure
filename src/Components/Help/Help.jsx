@@ -41,6 +41,14 @@ function Help() {
                     </tr>
                     <tr>
                         <td>
+                            LOOK
+                        </td>
+                        <td>
+                            Take a closer look at any interactables in the area or get a refresher on the room you're in.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             TAKE
                         </td>
                         <td>
